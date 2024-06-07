@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jundrel Alonzo - Web & Android Developer</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+            @import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap");
+    
+            body {
+                background-color: #f8f8f8;
+                color: #252525;
+                font-family: 'Poppins', sans-serif;
+                padding: 0;
+                margin: 0;
+            }
+    
+            section {
+                display: grid;
+                place-items: center;
+                align-content: center;
+                min-height: 100vh;
+            }
+    
+            .navbar-nav {
+                flex: 1;
+                justify-content: center;
+            }
+    
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+            }
+    
+            .text-justify {
+                text-align: justify;
+            }
+    
+            .social-icons a {
+                color: #1d1d1d;
+                text-decoration: none;
+                margin: 0 10px;
+                width: 50px;
+            }
+    
+            .hidden {
+                opacity: 0;
+                transform: translateX(-100%);
+                transition: all 1s;
+            }
+    
+            @media(prefers-reduced-motion) {
+                .hidden {
+                    transition: none;
+                }    
+            }
+    
+            .show {
+                opacity: 1;
+                transform: translateX(0);
+            }
+    
+            /* Additional animations */
+            .fade-in {
+                opacity: 0;
+                animation: fadeIn 1s forwards;
+            }
+    
+            .slide-up {
+                transform: translateY(100%);
+                animation: slideUp 1s forwards;
+            }
+    
+            .zoom-in {
+                transform: scale(0);
+                animation: zoomIn 1s forwards;
+            }
+    
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+    
+            @keyframes slideUp {
+                to {
+                    transform: translateY(0);
+                }
+            }
+    
+            @keyframes zoomIn {
+                to {
+                    transform: scale(1);
+                }
+            }
+    
+
+            .contents {
+                display: flex;
+            }
+
+            .content:nth-child(2) {
+                transition-delay: 200ms;
+            }
+            .content:nth-child(3) {
+                transition-delay: 400ms;
+            }
+            .content:nth-child(4) {
+                transition-delay: 600ms;
+            }
+            .content:nth-child(5) {
+                transition-delay: 800ms;
+            }
+            .content:nth-child(6) {
+                transition-delay: 1000ms;
+            }
+            .content:nth-child(7) {
+                transition-delay: 1200ms;
+            }
+            
+            
+            /* Navbar */
+            .navbar-brand h5 {
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+    
+            ul {
+                display: flex;
+                padding: 0;
+                margin: 0;
+            }
+    
+            ul li {
+                list-style: none;
+            }
+    
+            ul li a {
+                color: #333;
+                text-decoration: none;
+                font-size: 1.2em;
+                padding: 5px 20px;
+                display: inline-flex;
+                font-weight: 700;
+                transition: 0.5s;
+                position: relative;
+            }
+    
+            ul:hover li a {
+                color: #0002;
+            }
+    
+            ul li:hover a {
+                color: #000;
+                background: transparent;
+            }
+    
+            ul li a:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 40%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2em;
+                color: rgba(0, 0, 0, 0.1);
+                border-radius: 50%;
+                z-index: -1;
+                opacity: 0;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 500px;
+                transition: letter-spacing 0.5s, left 0.5s;
+            }
+    
+            ul li a:hover:before {
+                content: attr(data-text);
+                opacity: 1;
+                left: 50%;
+                letter-spacing: 10px;
+                width: 400px;
+                height: 400px;
+            }
+    
+            ul li:nth-child(6n + 1) a:before {
+                background: #0470fe;
+            }
+    
+            ul li:nth-child(6n + 2) a:before {
+                background: #ff7675;
+            }
+    
+            ul li:nth-child(6n + 3) a:before {
+                background: #ffeaa7;
+            }
+    
+            ul li:nth-child(6n + 4) a:before {
+                background: #a29bfe;
+            }
+    
+            ul li:nth-child(6n + 5) a:before {
+                background: #fd79a8;
+            }
+    
+            ul li:nth-child(6n + 6) a:before {
+                background: #ffeaa7;
+            }
+    
+
+            /* Image background with opacity */
+            .background-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.3;
+                z-index: -1;
+                object-fit:contain ;
+            }
+
+            .content {
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Image 2 */
+            .image-2 {
+                object-fit: cover;
+            }
+
+            .text_size1 {
+                font-size: 2em;
+            }
+            .text_size2{
+                font-size: 3em;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="none">
+                <div class="bg-none p-4">
+                    <nav class="navbar navbar-expand-lg bg-none">
+                        <div class="container-fluid">
+                          <a class="navbar-brand" href="\"><h5 class="text-body-emphasis h4">JUNDREL ALONZO</h5></a>
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <ul>
+                                    <li><a target="_blank" href="\" data-text="Home">HOME</a></li>
+                                    <li><a target="_blank" href="" data-text="Blogs">MY RESUME</a></li>
+                                    <li><a target="_blank" href="" data-text="Coding">PORTFOLIO</a></li>
+                                    <li><a target="_blank" href="" data-text="Skills">SKILLS</a></li>
+                                    <li><a target="_blank" href="" data-text="Contact">CONTACT</a></li>
+                                  </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </nav>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-none">
+                <div class="container-fluid justify-content-end">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            
+            <section class="text-center my-5 hidden">
+                <img src="/_static/images/no_backgrounds/bg.jpg" alt="Jundrel Alonzo" class="background-image">
+                <div class="content hidden">
+                    <h4 class="text_size1">HELLO I'M</h4>
+                    <h1 class="text_size2">JUNDREL ALONZO</h1>
+                </div>
+            </section>
+
+
+            <section class="text-center my-5 hidden">
+                <h4 class="text_size1">I'M FROM CEBU</h4>
+                <h1 class="text_size2">A WEB & ANDROID DEVELOPER</h1>
+            </section>
+
+            <section >
+                <div class="container text-center">
+                    <div class="row contents">
+                        <div class="col-md-6 content hidden">
+                            <img src="/_static/images/jundrel sea.jpeg" alt="Jundrel Alonzo" width="400px" class="img-fluid image-2">
+                        </div>
+                        <div class="col-md-5 align-self-center content hidden">
+                            <h3 class="mb-5">Hi! I'm Jundrel Alonzo</h3>
+                            <p class="text-justify mb-3">
+                                As a skilled Web and Android Developer, I specialize in creating dynamic, user-friendly, 
+                                responsive applications that cater to diverse business needs.
+                            </p>
+                            <div class="row social-icons justify-content-center contents">
+                                <div class="col-md-2 content hidden">
+                                    <a href="https://www.instagram.com" target="_blank">
+                                        <i class="fab fa-instagram fa-2x"></i>
+                                    </a>
+                                </div>
+                                <div class="col-md-2 content hidden">
+                                    <a href="https://www.facebook.com" target="_blank">
+                                        <i class="fab fa-facebook fa-2x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-4">
+            <p>&copy; 2024 Jundrel Alonzo. All rights reserved.</p>
+        </footer>
+
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const randomAnimation = ['fade-in', 'slide-up', 'zoom-in'][Math.floor(Math.random() * 3)];
+                        entry.target.classList.add(randomAnimation);
+                        entry.target.classList.add('show');
+                    } else {
+                        entry.target.classList.remove('show', 'fade-in', 'slide-up', 'zoom-in');
+                    }
+                });
+            });
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach((el) => observer.observe(el));
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>
